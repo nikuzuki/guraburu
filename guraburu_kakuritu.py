@@ -3,7 +3,7 @@
 20連 : 40% -> 400 (201~600)
 30連 : 18.5% -> 185 (16~200)
 100連 : 1.5% -> 15 (1~15)
-のガチャを12回した時
+のガチャを14回した時
 11回連続で100連を引けない確率
 
 1回のガチャにおいて
@@ -16,7 +16,6 @@ SSR : 6%
 
 1~3日の間はSSRの確率が6% 4~14の間はSSRの確率が3%
 '''
-
 import random
 
 # ガチャの回数抽選
@@ -36,16 +35,12 @@ def kaisuu_gacha(day):
         else:
             tmp = random.randint(1, 1000)
             if(tmp <= 15):
-                #print("100連！ｗ")
                 result['100'] = result['100'] + 1
             elif(tmp >= 16 and tmp <= 200):
-                #print("30連！")
                 result['30'] = result['30'] + 1
             elif(tmp >= 201 and tmp <= 600):
-                #print("20連")
                 result['20'] = result['20'] + 1
             else:
-                #print("10連...")
                 result['10'] = result['10'] + 1
 
         if(i == 2):
@@ -77,8 +72,10 @@ def SSR_gacha(r, gekiatsu_num):
         else:
             result['hazure'] = result['hazure'] + 1
 
-
+    # SSRの的中率
     # return result['atari'] / kaisuu_num * 100
+
+    # SSRの出現数
     return result['atari']
 
 
